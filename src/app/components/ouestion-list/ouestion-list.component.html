@@ -1,0 +1,50 @@
+<div id:picther>
+    <div id="allPage">
+        <!-- סינונים -->
+        <!-- <mat-select (selectionChange)="selectSorted($event)" class="options">
+            <mat-option [value]="sorted.value" *ngFor="let sorted of sortList">{{sorted.label}}</mat-option>
+        </mat-select>
+        <mat-select (selectionChange)="selectFilter($event)" class="options">
+            <mat-option [value]="filter.value" *ngFor="let filter of filterList">{{filter.label}}</mat-option>
+        </mat-select> -->
+        <span id="checkboxv1">
+            <input type="checkbox">
+        </span>
+        <button class="options">בחר הכל</button>
+        <span id="checkboxv1">
+            <input type="checkbox">
+        </span>
+        <button class="options">בחר הכל וסיים בחירה</button>
+        <span id="checkboxv1">
+            <input type="checkbox" (change)="openAllQuestion()">
+        </span>
+        <button class="options">פתח הכל</button>
+        <!-- רשימת שאלות -->
+        <!-- <div class="questionClass" *ngFor="let question of listOfAllAnsers; let i=index">
+            <div *ngIf="!changeQuestion1[i]">
+                <span [ngClass]="{'level1': question.level==='קל',
+            'level2': question.level==='בינוני',
+            'level3': question.level==='קשה' }" class="level">{{question.level}}</span>
+                <span id="checkboxv1">
+                    <input type="checkbox" (change)="chooseQuestion(question.question.id)" id="checkboxv">
+                </span>
+                <button>{{question.question.question1}}</button>
+                <button (click)="openQueston(question.question.id)">V</button>
+                <span id="idUser">{{question.userName}}</span>
+            </div>
+            <div *ngIf="openQ[i]">
+                <div *ngFor='let in of listOfAllAnsers[i].ansers ;'>
+                    <h2> {{in.anser}}</h2>
+                </div>
+                <button *ngIf=(!listOfAllAnsers[i].isSystem) (click)="changeQuestion(i)">ערוך</button>
+            </div>
+            <div *ngIf="changeQuestion1[i]">
+                <app-change-question (goOut)=" goOut($event,i)" 
+                [thisQuestion]="question"></app-change-question>
+            </div>
+        </div> -->
+        <!-- סיום -->
+        <button class="options" (click)="save()">שמור וסיים בחירת שאלות</button>
+        <button class="options" (click)="saveAndChooseMore()">שמור ובחר שאלות נוספות</button>
+    </div>
+</div>

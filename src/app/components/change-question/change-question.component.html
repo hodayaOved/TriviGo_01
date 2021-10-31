@@ -1,0 +1,60 @@
+<!-- שאלה -->
+<div *ngIf="!doChangeQuestion">
+    <h2>{{thisQuestion.question.question1}}</h2>
+    <button (click)="doChange(-1)">שנה</button>
+</div>
+<div *ngIf="doChangeQuestion">
+    <input type="text" name="question.question1" [(ngModel)]="thisQuestion.question.question1" />
+    <button (click)="FinishedChange(-1)">סיים</button>
+</div>
+
+<!-- רשימת תשובות -->
+<div *ngFor='let in of thisQuestion.ansers;let i=index'>
+    <div *ngIf="!doChangeAnsers[i]">
+        <h2>{{i+1}}. {{in.anser}}</h2>
+        <button (click)="doChange(i)">שנה</button>
+    </div>
+    <div *ngIf="doChangeAnsers[i]">
+        <h2>{{i+1}}.</h2>
+        <input  type="text" [(ngModel)]=thisQuestion.ansers[i].anser />
+        <button (click)="FinishedChange(i)">סיים</button>
+    </div>
+</div>
+<div>
+    <button *ngIf="!ToaddAnswer" (click)="addAnswer()">הוסף תשובה</button>
+    <input *ngIf="ToaddAnswer"  type="text" [(ngModel)]=addAnswerText />
+    <button *ngIf="ToaddAnswer" (click)="FinishedChangeNewAnswer()">סיים</button>
+</div>
+
+<!-- תשובה נכונה -->
+<h2>תשובה נכונה:</h2>
+<div *ngIf="!doChangeCurrentAnswer">
+    <h2>{{currentAnser}}</h2>
+    <button (click)="doChange(-2)">שנה</button>
+</div>
+<div *ngIf="doChangeCurrentAnswer">
+    <input type="number" name="currentAnser" [(ngModel)]="currentAnser" min="1" max="{{thisQuestion.ansers.length}}" />
+    <button (click)="FinishedChange(-2)">סיים</button>
+</div>
+
+<!--תמונה -->
+<img [src]="thisQuestion.question.image" height="200" *ngIf="!isNotImg"/><br />
+<h2>{{image}}</h2>
+<input type="file" value="הוסף תמונה" #imageInput type="file" accept="image/*"
+ (change)="onSelectFile($event)" /><br />
+<h6 *ngIf="isNotImg">לא ניתן לקרוא. נא לבחור קובץ מסוג תמונה בלבד</h6>
+
+<!-- רמה -->
+<h2>רמה: {{level}} </h2>
+<div *ngIf="!doChangeLevel">
+    <button (click)="doChange(-3)">שנה</button>
+</div>
+<div *ngIf="doChangeLevel">
+    <button (click)="changeLevel(1)">קל</button>
+    <button (click)="changeLevel(2)">בינוני</button>
+    <button (click)="changeLevel(3)">קשה</button>
+    <button (click)="FinishedChange(-3)">סיים</button>
+</div><br/><br/>
+
+<button (click)="save()">סיים ושמור שאלה</button>
+<button (click)="cancel()">ביטול</button>

@@ -1,0 +1,13 @@
+<fieldset
+ class="checkbox-group" *ngFor="let category of categoryList">
+  <div class="checkbox">
+    <label class="checkbox-wrapper">
+      <!-- זה השורה שעושה את העיגול של הבחירה עם האפשרות לוי -->
+      <input type="checkbox" class="checkbox-input" (change)="change(category.id)"/>
+      <span class="checkbox-tile">
+        <span class="checkbox-label">{{category.name}}</span>
+      </span>
+    </label>
+  </div>
+</fieldset>
+<button (click)="out()">סיים בחירה</button>

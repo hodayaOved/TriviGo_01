@@ -1,0 +1,18 @@
+
+<div class="game">
+    <h1>{{CountQuestion-q.length+1}}/{{CountQuestion+1}}</h1>
+    <h3 id="TIMER">{{Time}}</h3>
+    <div>
+        <h1 class="question"><i class="fa fa-question-circle-o" style="font-size:24px"></i> {{q1.question1}}</h1>
+        <div class="card" *ngFor="let x of arrAnswer let i=index">
+            <div class="numQuestion">
+                <h2>{{i+1}}</h2>
+            </div>
+            <h2> xx{{x.anser}}</h2>
+        </div>
+    </div>
+
+    <div id="NOTETIME">
+        <button (click)="AddQuestion()">סיים שאלה</button>
+    </div>
+</div>

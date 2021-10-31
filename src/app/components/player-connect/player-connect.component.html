@@ -1,0 +1,87 @@
+<div class="sidenav">
+  <label class="label_sidenav" tabindex="1"  (click)="GamesHistory()"><i class="fa fa-history" style="font-size:24px" ></i>היסטורית משחקים
+  </label>
+  <label class="label_sidenav" tabindex="1" id="PrivetDitels" (click)="privetDitels()">פרטים אישיים<i class="fa fa-address-card-o" style="font-size:24px"></i>
+  </label>
+  <label class="label_sidenav" tabindex="1" id="point" (click)="point()">ניקוד מצטבר
+  </label>
+  <label class="label_sidenav" tabindex="1" id="SystemComments" (click)="SystemComments()">פניות למערכת
+  </label>
+  <label class="label_sidenav" tabindex="1" (click)="LogOut()"><i class="fa fa-sign-out" style="font-size:24px"></i>התנתקות
+  </label>
+</div>
+
+<div class="Player-conect-left">
+  <div  class="PrivetDitels" *ngIf="FlagePrivetDitels==true">
+    <h1>פרטים</h1>
+    <label>שם</label>
+    <input name="name" type="text" [(ngModel)]="player.name">
+    <label>משפחה</label>
+    <input type="text" [(ngModel)]="player.famelyName"><br>
+    <label>טלפון</label>
+    <input type="text" [(ngModel)]="player.phone"><br>
+    <label>מייל</label>
+    <input type="text" [(ngModel)]="player.email"><br>
+    <input type="button" (click)="UpdateDitels()" value="עדכן פרטים">
+  </div>
+
+
+  <div class="point" *ngIf="FlagePoint==true">
+    <img src="../../../assets/תמונה 2.jpg">
+    <h3>{{player.name}}</h3>
+    <h1>
+      צברת עד כה
+      {{player.cumulativePoints}}
+      נקודות
+    </h1>
+  </div>
+
+
+
+  <table *ngIf="flageGamesHistory==true">
+    <thead>
+      <th>שם משחק</th>
+      <th>קוד כניסה למשחק</th>
+      <th>תאריך שימוש אחרון</th>
+      <th></th>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of GameSettings let i=index">
+        <td>{{x}}</td>
+        <td>{{x.id}}</td>
+        <td>{{x}} </td>
+        <td><input type="button" value="כניסה למשחק" (click)="startGame(x.id)"> </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+
+
+<div *ngIf="FlageSystemComments==true">
+  <table>
+    <thead>
+      <th>הערה</th>
+      <th>סטטוס פניה</th>
+      <th>תאריך</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of AllSystemComments">
+        <td>{{x.comment}}</td>
+        <td>{{x.status}}</td>
+        <td>{{x.date}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+  <h2 (click)="add_system_coment()">הוסף פניה<i class="material-icons">add_circle_outline</i></h2>
+  
+</div>
+<div *ngIf="flagsystem_coment==true">
+    <app-system-comments></app-system-comments>
+  </div>
+
+
+</div>

@@ -1,0 +1,10 @@
+<div class="category">
+<div class="category2"  *ngFor="let category of AllCategry; let i=index">
+    <button [ngClass]="{'class_1': i<=7, 'class_2': i>7 && i<=15,'class_3': i<=23 &&i>15 }">
+        
+        <span>
+           {{i}} {{category.name}}
+        </span>
+    </button>
+</div></div>
+{{AllCategry.length}}

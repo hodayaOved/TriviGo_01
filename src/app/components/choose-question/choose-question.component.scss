@@ -1,0 +1,36 @@
+$color1:#128089;
+$color2:#F99D28;
+$color3:#F8D02D;
+$clor4:#858586;
+$color5:#E8E7E7;
+
+.choose-question{
+    
+    background-image: url("../../../assets/תמונה\ 2.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+.navbar{
+    text-align: center;
+    #categories{
+        background-color: $color2;
+    }
+    #quiz{
+        background-color: $color1;
+    }
+    #newQuestion{
+        background-color: $color3;
+    }
+}
+.navbar button{
+    margin: 8px;
+    background-color: #F8D02D;
+    padding: 20px;
+    border: none;
+    color: white;
+    margin-top: 5%;
+}
+

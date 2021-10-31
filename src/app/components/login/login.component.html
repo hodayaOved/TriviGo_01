@@ -1,0 +1,84 @@
+<div class="Login-left"></div>
+<div class="Login-center">
+<div  class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 id="login" (click)="login()" class="active underlineHover"> התחבר </h2>
+    <h2 id="logup" (click)="logup()" class="inactive underlineHover">הרשם </h2>
+    <!-- הרשם -->
+    <div *ngIf="flagelogup==true">
+      <form [formGroup]="myform" (ngSubmit)="save()">
+       
+        <input  type="text" placeholder="שם משתמש"  class="fadeIn second" formControlName="name" /><br>
+        <label *ngIf="myform.controls.name.touched&&myform.controls.name.errors?.required">
+          *נא למלא שם
+        </label>
+        
+        
+        <input type="text" placeholder="שם משפחה"  class="fadeIn second" formControlName="famelyName">
+        
+        
+        
+        
+        <input  type="email" placeholder="אימל"  class="fadeIn second" formControlName="email"><br>
+        <label  *ngIf="myform.controls.email.touched&&myform.controls.email.errors?.pattern">
+          *מייל לא תקין
+        </label>
+        
+        
+        
+        <input type="text" placeholder="סיסמא"  class="fadeIn second" formControlName="Pas1">
+        <label  *ngIf="myform.controls.email.touched&&myform.controls.email.errors?.pattern">
+          *מייל לא תקין
+        </label>
+        
+       
+        <input  type="text" placeholder="מספר פלאפון"  class="fadeIn second" formControlName="phone"><br><br>
+        <label>אישור תקנון </label>
+        <input formControlName="checbox" type="checkbox">
+        
+        <label *ngIf="myform.controls.checbox.touched&&myform.controls.checbox.errors">
+          *חובה לאשר תקנון
+        </label><br>
+
+        <input type="submit" [disabled]="!myform.valid">
+      </form>
+    </div>
+    <!-- התחבר -->
+    
+    <div *ngIf="flagelogin==true" >
+      <form>
+      <input type="email" title="Please Provide A Valid Email Address !" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #mail id="login"
+        class="fadeIn second" placeholder="מייל">
+        
+        <!-- <div *ngIf="mail.touched&&mail.hasError('pattern')"> *מייל חייב להיות בתבנית המתאימה </div> -->
+   
+      <input type="password" #password id="password" class="fadeIn third" placeholder="סיסמא">
+      <div>{{err}}</div>
+      <input type="button" (click)="check(mail.value,password.value)" class="fadeIn fourth" value="Log In">
+    </form></div>
+    <!-- שכח סיסמא -->
+    <div *ngIf="flageforgetPasword==true">
+      <input type="text" #mail id="login" class="fadeIn second" placeholder="מייל">
+      <input type="button" (click)="forgetPasword(mail.value)" class="fadeIn fourth" value="שליחת סיסמא">
+    </div>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" (click)="FlageforgetPasword()">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<!-- <div *ngIf='p.email!=""'>
+  <app-player-connect></app-player-connect>
+</div> -->
+
+
+<div class="Login-rghit">
+
+   <h1>{{H1LoginRghit}}</h1>
+    <h3>{{H3LoginRghit}}</h3>
+</div>

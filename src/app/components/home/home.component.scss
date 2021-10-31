@@ -1,0 +1,29 @@
+.home{
+    display: inline-block;
+    background-image: url("/../../assets/בית.png ")
+    ;
+    color: white;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 100%;
+height: 70%
+}
+button   {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 10px 30px 0 rgb(95 186 233 / 40%);
+    // border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 0px ;
+}
+button :hover{
+ background-color: #39ace7;
+ box-shadow: 10px 20px 30px 0 rgb(95 186 333 / 40%);
+}
+.button-link{
+    width: 103%;
+}

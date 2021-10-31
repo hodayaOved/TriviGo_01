@@ -1,0 +1,47 @@
+
+.about-left{
+background-color: #858586;
+height: 40%;
+width: 39%;
+display: inline-block;
+
+}
+.Contact{
+text-align: right;
+display: inline-block;
+float: right;
+}
+.Contact h1{
+    color: #128089;
+}
+.Contact h3{
+    color: white;
+}
+.about-right{
+    background-color: #E8E7E7;
+    height: 40%;
+    margin-left: 1%;
+width: 60%;
+float: right;
+display: inline-block;
+
+}
+
+.send-massege{
+    display: inline-grid;
+    position: absolute;
+    margin: auto;
+    direction: rtl;
+}
+input  {     
+    width: 200px;
+    
+    height: 35px;
+}
+#submit{
+    background-color: #128089;
+    color: white;
+
+   
+}
+

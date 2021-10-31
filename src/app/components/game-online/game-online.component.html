@@ -1,0 +1,37 @@
+<div dir="rtl" style="height: 100%; width: 100%;">
+    <div class="Online-left">jjj</div>
+    <div class="Online-center">
+        <h2>שחק משחק דוגמא</h2>
+        <div class="exmple-game">
+            <label>{{x+1}}/{{array.length}}</label>
+            <h1>{{((array[x].Question[0])[0])}}</h1>
+            <h3>1. {{array[x].Question[1][1]}}</h3>
+            <h3>2. {{array[x].Question[2][2]}}</h3>
+            <h3>3. {{array[x].Question[3][3]}}</h3>
+            <br>
+            <button style="background-color: #128089;" [ngClass]="{'my_class': x == array.length-1}" id="next"
+                (click)="next()">הבא</button>
+            <button style="background-color: #F8D02D;" [ngClass]="{'my_class': x === 0}"
+                (click)="before()">הקודם</button>
+        </div>
+    </div>
+    <div class="Online-raghit">
+        <div class="timeOnline">
+            <h2> {{h2}}</h2>
+            <h1>דקות {{minets}}:{{secent>9?secent:0+""+secent}} </h1>
+            <i class="fa fa-clock-o" style="font-size:24px"></i>
+        </div>
+        <div *ngIf="FlageSignUpGameOnline==true">
+            <button (click)="addGame()">הרשם למשחק</button>
+            <div *ngIf="flageStart==true" class="selection_during_game">
+
+
+                <input (click)="SignUpGameOnline()" type="radio">כניסה דרך הטלפון
+                <input (click)="SignUpGameOnline()" type="radio">כניסה דרך האתר
+                <br>
+            </div>
+
+        </div>
+        <br>
+    </div>
+</div>

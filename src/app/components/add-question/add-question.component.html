@@ -1,0 +1,37 @@
+<div class="add-question">
+    
+    <div class="settings">
+        <div class="level">
+            <p>רמה:</p>
+            <button (click)="level(1)">קל</button>
+            <button (click)="level(2)">בינוני</button>
+            <button (click)="level(3)">קשה</button><br />
+        </div>
+        <input type="file" value="הוסף תמונה" #imageInput type="file" accept="image/*"
+            (change)="onSelectFile($event)" /><br />
+        <h6 *ngIf="notgoodimg">לא ניתן לקרוא. נא לבחור קובץ מסוג תמונה בלבד</h6>
+        <img [src]="url" height="200" *ngIf="!notgoodimg"> <br />
+
+        <button (click)="caterories=true">בחירת קטגוריות</button><br />
+        <div *ngIf="caterories">
+            <h5 *ngIf="enyCategory">יש לבחור לפחות קטגוריה אחת</h5>
+            <app-cateroris-to-choose (chooseCategories)=" choose($event)"></app-cateroris-to-choose>
+        </div>
+
+        <button (click)="addAnser()">הוסף תשובה נוספת</button><br /><br />
+        <button (click)=onlysave()>שמור</button><button (click)=saveAndAnotherQuestion()> שמור והוסף
+            שאלה</button><br /><br /><br />
+    </div>
+    <div class="Qustion">
+        <label>שאלה:</label>
+        <input type="text" #Qustion [(ngModel)]="newquestion.question1" />
+
+        <div *ngFor="let in of arrnumansers ;let i = index">
+            <label>תשובה {{i+1}}:</label>
+            
+            <input type="text" id="i" name="i" [(ngModel)]="arrnumansers[i].name" />
+        </div>
+        <p>תשובה נכונה:</p>
+        <input type="number" [max]="numAnser" min="1" [(ngModel)]="currentanser" />
+    </div>
+</div>

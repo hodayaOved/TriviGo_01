@@ -1,0 +1,23 @@
+<div class="choose-question">
+<div class="navbar">
+<button id="categories"  (click)="categoriesfunc()">בחירה לפי קטגוריה</button>
+<button id="quiz" (click)="quizfunc()">בחירה לפי שאלונים מוכנים</button>
+<button id="newQuestion" (click)="newQuestionfunc()">הוספת שאלה חדשה</button>
+</div>
+<div *ngIf="categories">
+<ul *ngFor="let category of categoryList">
+    <li><button (click)="gotoquestion(category.id,1)">{{category.name}}</button>  </li>  
+</ul>
+</div>
+<div *ngIf="quiz">
+   <ul *ngFor="let quiz of quizList">
+    <li><button (click)="gotoquestion(quiz.id,2)" >{{quiz.name}}</button>  </li>  
+</ul>
+</div>
+<div *ngIf="newQuestion">
+     <app-add-question></app-add-question>
+</div>
+<div *ngIf="questionList">
+<app-ouestion-list [idQuestion]="idToLists" [cateroriOrQuiz]="CateroriOrQuiz" (closeComponent)="closeQuestionList($event)"></app-ouestion-list>
+</div>
+</div>

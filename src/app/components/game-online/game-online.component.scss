@@ -1,0 +1,100 @@
+//משחק דוגמא
+.Online-center h2{
+    background: #F99D28;
+    color: white;
+    width: 30%;
+    direction: rtl;
+    text-align: center;
+    margin-right: 30%;
+}
+.exmple-game{
+    margin: 15% 5% 5% 5%;
+    background: rgba(252, 253, 251, 0.925);
+    border-style: solid;
+    border-color:rgba(0, 0, 0, 0.315);
+    border-radius: 5%;
+}
+.exmple-game h1{
+    text-align: center;
+    color: #128089;
+}
+.exmple-game h3{
+    direction: rtl;
+    margin-right: 43%;
+    color: rgb(143, 141, 141);
+}
+button   {
+       background-color: #56baed;
+       border: none;
+       color: white;
+       padding: 15px 80px;
+       text-align: center;
+       display: inline-block;
+       box-shadow: 0 10px 30px 0 rgb(95 186 233 / 40%);
+       border-radius: 5px 5px 5px 5px;
+       margin: 5px 20px 20px 20px;
+  }
+ button :hover{
+    background-color: #39ace7;
+    box-shadow: 10px 20px 30px 0 rgb(95 186 333 / 40%);
+ }
+ 
+  .my_class{
+    opacity: 40%;
+  }
+  
+
+  
+    
+    
+       
+
+.Online-raghit{
+    background-image: url("../../../assets/תמונה 2.jpg ")
+  ;
+  float: left;
+  background-position: center; 
+  background-repeat: no-repeat;
+  color: rgb(165, 162, 162);
+display: inline-block;
+width: 30%;
+height: 100%
+}
+.Online-raghit button{
+background:#F99D28 ;
+    margin-right: 13%;
+
+}
+.selection_during_game{
+    margin-right: 13%;
+    margin-top: 0%;
+}
+.Online-left{
+    display: inline-block;
+    background-image: url("../../../assets/תמונה 2.jpg ");
+    background-position: center; 
+    background-repeat: no-repeat;
+     float: left;
+    width: 10%;
+height: 100%
+}
+.Online-center{
+    
+  margin-left: 1%;
+  margin-right: 1%;
+    display: inline-block;
+    float: left;
+    background: #a09e9eb7 ;
+    width: 58%;
+height: 100%
+}
+
+.timeOnline{
+    
+   background: linear-gradient(to left, #f1ab53,30%, #cfaa306b);
+    margin-top: 19%;
+    width: 75%;
+    border-radius: 3%;
+    direction: ltr; 
+    color: white;
+}

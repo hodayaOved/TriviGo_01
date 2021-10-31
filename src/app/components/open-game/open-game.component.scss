@@ -1,0 +1,100 @@
+.open-game-left{
+    background-image: url("../../../assets/תמונה 2.jpg ")
+    ;
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    display: inline-block;
+    float: left;
+    width: 72%;
+    height: 100%;
+}
+.open-game-right{
+    background: #F99D28;
+    display: inline-block;
+    
+    width: 28%;
+    height: 100%;
+}
+.open-game-center{
+    width: 50%;
+    border-radius: 13%;
+    height: 40%;
+    background-color: #fafafa8c;
+    text-align: center;
+    margin:auto ;margin-top: 11%;
+    padding-top: 8%;
+}
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 3s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+
+.open-game-center input[type=text]{
+    border: none;
+    height: 30px;
+    width: 65%;
+}
+.open-game-center input[type=text] :hover{
+    border-color: cadetblue;
+    background-color: #39ace7;
+}
+.open-game-center input[type=button]{
+    border: none;
+    color: white;
+    background-color: rgb(27, 104, 78);
+    display: block;
+    height: 30px;
+    width: 65%;
+    margin: auto;
+    margin-top: 2%;
+}
+input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+    
+    border: none;
+  }
+a{
+    margin-top: 7px;
+    color: blue;
+}
+h3{
+    color: #1b684e;
+}
