@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   H3LoginRghit = "בכדי להנות ממשחקים שיצרת וליצור משחקים חדשים התחבר עכשיו"
   myform: FormGroup;
   addplayer: player = new player(0, "yair", "oved", "@gmail.com", "dddd", "00222", 9, "dd");
-  p: player = new player(0, "", "", "", "", "", 0, "https://upload.wikimedia.org/wikipedia/commons/a/a8/Viljo_koirarannalla_18-edit2.jpg");
+  // p: player = new player(0, "", "", "", "", "", 0, "https://upload.wikimedia.org/wikipedia/commons/a/a8/Viljo_koirarannalla_18-edit2.jpg");
   // @Output()
   // myAddEvent: EventEmitter<string> = new EventEmitter<string>();\
   flagelogup: boolean = false
@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
   flageforgetPasword: boolean = false
 
   constructor(public router: Router, public ser: PlayerService, private connectService: ConnectService) {
-
-
     this.myform = new FormGroup(
       {
         "name": new FormControl(null, Validators.required),
@@ -48,7 +46,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.flagelogin = true
-
     let s = localStorage.getItem("player");
     if (s != null) {
       this.router.navigate(['PlayerConnect']);
@@ -58,11 +55,9 @@ export class LoginComponent implements OnInit {
   //כניסה לאתר
   check(mail: string, password: string) {
     this.err = "";
-
     this.ser.GetPlayerByMailAndPasword(mail, password).subscribe(s => {
-      this.p = s;
+      // this.p = s;
       this.connectService.loginEdit.next(s.name);
-      //this.router.navigate(['/home'],{namePlayer:'ddd'})
       localStorage.setItem('player', JSON.stringify(s));
       this.router.navigate(['PlayerConnect']);
     }, (err => this.err = "שם המשתמש או הסיסמא שגויים ,נסה שוב"));
@@ -88,7 +83,6 @@ export class LoginComponent implements OnInit {
   }
   //שכח סיסמא
   forgetPasword(email: string) {
-    debugger
     this.ser.ForgotPassword(email).subscribe(s => alert("נשלחחח"));
   }
 

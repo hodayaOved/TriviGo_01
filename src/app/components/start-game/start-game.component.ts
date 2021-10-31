@@ -25,21 +25,19 @@ import { QuizService } from '../../services/quiz.service';
 
 export class StartGameComponent implements OnInit {
   gs: GameSetting | undefined
-
   QuizId: number = 0;
-  qu: Question = new Question(0, "", 0, "", 0, 0, 0, 0);
+  // qu: Question = new Question(0, "", 0, "", 0, 0, 0, 0);
   q1: any;
   q: Question[] = [];
   arrAnswer: Ansers[] = [new Ansers(1, 1, "d")]
   sub: any
-  // my: any
   questionTime: number = 0;
   CountQuestion: number = 0
   Time: number = 0;
   TimeConst = 0;
   IdSetting: number = 0
   subscription: Subscription | undefined;
-  t: boolean = false
+  // t: boolean = false
   constructor(private router: Router, public serAnswer: AnsersService, private GameSettingsService: GameSettingsService, private ro: ActivatedRoute, private serQuestion: QuestionServiceService) { }
 
 
@@ -48,7 +46,6 @@ export class StartGameComponent implements OnInit {
     this.startGame()
   }
   startGame() {
-    debugger
     if (this.IdSetting != 0)//משחק מוכן
     {
       this.serQuestion.GetQuestionsByQuiz(this.IdSetting).subscribe
@@ -113,10 +110,5 @@ export class StartGameComponent implements OnInit {
     }
   }
 
-  //   chckAnswer() {
-
-  //   }
-  // //תשובות לפני שאלה
-  //   GetAnsers(IdQuestion:number){
-  //   this.serAnswer.DeleteAnsersByQuestionsers(IdQuestion).subscribe(s =>this.arrAnswer=s) 
+  
 }

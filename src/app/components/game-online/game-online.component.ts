@@ -50,30 +50,21 @@ export class GameOnlineComponent implements OnInit {
 
 
   }
-  FlageSignUpGameOnline = true
-
-
-  h2="האונליין יחל בעוד"
-  // count: number = 0;
-  // players: player[] = []
-  flageStart: boolean = false
-  FlagExmpleGame: boolean = false
-
-  x = 0; y = 0
-  // Addanswer: number = 2;
-  // Addquestion = 0;
-  interval: any
+  FlageSignUpGameOnline = true;
+  flageStart: boolean = false;
+  FlagExmpleGame: boolean = false;
+  x = 0;
+  interval: any;
   Time: number = 0;
   subscription: Subscription | undefined;
-  minets: number = 0
-  secent: number = 11
-  StartGameTime: number = 0
-
+  minets: number = 0;
+  secent: number = 11;
+  StartGameTime: number = 0;
+  h2 = "האונליין יחל בעוד";
   ngOnInit(): void {
-    // this.flageStart=this.serviceGameOnline.FlagStartGameOnline
     this.serviceGameOnline.startGameOnline().subscribe(s => {
       this.StartGameTime = s;
-      this.minets = Number.parseInt(s.toString())-1;
+      this.minets = Number.parseInt(s.toString()) - 1;
       this.secent = Number.parseInt(s.toString());
       this.secent = Number.parseInt(((s - Number.parseInt(s.toString())) * 100).toFixed());
 
@@ -87,50 +78,49 @@ export class GameOnlineComponent implements OnInit {
       this.subscription = source.subscribe(val => {
         if (this.secent > 0)
           this.secent--;
-          
+
         else
           if (this.minets > 0) {
             this.minets--;
             this.secent = 59;
           }
           else {
-            console.log("ngOnDestroy"+this.serviceGameOnline.FlagStartGameOnline)
+            console.log("ngOnDestroy" + this.serviceGameOnline.FlagStartGameOnline)
             if (this.flageStart == true)
               this.router.navigate(['StartGame', 0]);
             //this.serviceGameOnline.FlagStartGameOnline=true
             this.ngOnDestroy()
           }
       });
-    }, err => console.log("jjj"))
+    }, err => console.log("erro"))
 
 
   }
 
   ngOnDestroy() {
-    
-   
   }
   addGame() {
-    debugger
     this.serviceGameOnline.FlagStartGameOnline == true
-    this.flageStart=true;
-    console.log(this.flageStart)
+    this.flageStart = true;
+    
 
   }
 
   next() {
+    if( this.x<2)
     this.x = this.x + 1;
   }
 
   before() {
+    if(this.x!=0)
     this.x = this.x - 1;
   }
 
   SignUpGameOnline() {
     // this.flageStart = false;
     this.FlageSignUpGameOnline = false;
-    this.h2="משחק האונליין שנרשמת אליו יחל בעוד"
+    this.h2 = "משחק האונליין שנרשמת אליו יחל בעוד"
   }
-  
+
 
 }

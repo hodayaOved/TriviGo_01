@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(): void { 
     this.navbar.navBarArr[0]=false
-  
-    
   }
 
 

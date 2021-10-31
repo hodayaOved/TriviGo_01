@@ -24,7 +24,8 @@
 .c-main-menu {
   font-weight: 500;
   direction: rtl;
-  margin-right: 20%
+  margin-right: 20%;
+  margin-bottom: 40px;
 }
 .c-main-menu__list {
   @extend %list-reset;

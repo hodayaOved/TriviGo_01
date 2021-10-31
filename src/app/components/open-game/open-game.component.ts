@@ -20,10 +20,7 @@ export class OpenGameComponent implements OnInit {
   ngOnInit(): void {
   }
   startGame(Kod: any) {
-
- 
       this.router.navigate(['StartGame', Kod]);
-    
   }
 
 
