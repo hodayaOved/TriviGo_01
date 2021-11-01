@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { element } from 'protractor';
-import { NavbarService } from 'src/app/navbar.service';
 import { player } from 'src/model/player';
 import { CategoriesService } from '../../services/categories.service';
 
@@ -11,12 +11,21 @@ import { CategoriesService } from '../../services/categories.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ser:CategoriesService,private navbar:NavbarService) { }
+  constructor(private router: Router,private ser:CategoriesService) { }
 
  
   
   ngOnInit(): void { 
-    this.navbar.navBarArr[0]=false
+    
+  }
+  startGame(){
+    this.router.navigate(['openGame']);
+  }
+  startOnlin(){
+    this.router.navigate(['game-online']);
+  }
+  newGame(){
+    this.router.navigate(['newGame']);
   }
 
 

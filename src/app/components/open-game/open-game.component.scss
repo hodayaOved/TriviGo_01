@@ -84,6 +84,7 @@
     width: 65%;
     margin: auto;
     margin-top: 2%;
+    margin-bottom: 12px;
 }
 input[type=text]:focus {
     background-color: #fff;
@@ -94,6 +95,12 @@ input[type=text]:focus {
 a{
     margin-top: 7px;
     color: blue;
+}
+a:hover{
+border-bottom: 2px solid blue;
+}
+label{
+  margin-top: 2px;
 }
 h3{
     color: #1b684e;

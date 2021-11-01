@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavbarService } from 'src/app/navbar.service';
 import { SystemComments } from 'src/model/SystemComments';
 import { SystemCommentsService } from 'TriviGo/git/src/app/services/system-comments.service';
 
@@ -11,7 +10,7 @@ import { SystemCommentsService } from 'TriviGo/git/src/app/services/system-comme
 })
 export class SystemCommentsComponent implements OnInit {
 
-  constructor(private SystemCommentsService: SystemCommentsService,private navbar:NavbarService,private router: Router) { }
+  constructor(private SystemCommentsService: SystemCommentsService,private router: Router) { }
   SystemComments:SystemComments=new SystemComments(0,1,"",1,null,new Date());
   ngOnInit(): void {
   }

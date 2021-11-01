@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { player } from 'src/model/player';
-import { NavbarService } from './navbar.service';
 import { ConnectService } from './services/connect.service';
 import { PlayerService } from './services/player.service';
 
@@ -18,11 +17,10 @@ export class AppComponent{
   player: any;
   err: string = "";
   editUser!: Subscription;
-  constructor(private serPlayer: PlayerService, private playerService: PlayerService, private connectService: ConnectService,private navbar:NavbarService) { }
+  constructor(private serPlayer: PlayerService, private playerService: PlayerService, private connectService: ConnectService) { }
   d:any
   ngOnInit() {
-    this.d=this.navbar.navBarArr
-    console.log(this.d[2])
+ 
         let s:any = localStorage.getItem("player");
     this.namePlayer = " שלום " + s?s.name:'';
      this.connectService.loginEdit.subscribe((name)=>{

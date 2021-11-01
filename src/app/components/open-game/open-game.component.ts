@@ -23,6 +23,11 @@ export class OpenGameComponent implements OnInit {
       this.router.navigate(['StartGame', Kod]);
   }
 
+  newGame(){
+    this.router.navigate(['newGame']);
+
+  }
+
 
 
 }

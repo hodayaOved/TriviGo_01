@@ -5,11 +5,11 @@
     <div>
         <h1 class="question"><i class="fa fa-question-circle-o" style="font-size:24px"></i> {{q1.question1}}</h1>
         <div class="card" *ngFor="let x of arrAnswer let i=index">
-            <div class="numQuestion">
-                <h2>{{i+1}}</h2>
-            </div>
-            <h2> xx{{x.anser}}</h2>
-        </div>
+            <div id="{{ 'object' + i }}"  >
+               <img  src={{imgAnswer[i]}}>
+           
+            <h2> {{x.anser}}</h2>
+         </div>
     </div>
 
     <div id="NOTETIME">

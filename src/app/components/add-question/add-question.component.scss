@@ -9,16 +9,18 @@ $color5:#E8E7E7;
     text-align: center;
     margin: auto;
     border-radius: 13px;
-    border-color:$color1;
-    border: $color1;
     display: flex;
     padding: 40px;
     width: 40%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+    border: solid #127f8991;
    
 }
 .settings{
       
       background-color: white;
+      width: inherit;
      
 } label{
           float: right;
@@ -31,9 +33,44 @@ $color5:#E8E7E7;
 .Qustion{
     flex-grow: 1;
     
+ label{
+    color: $color1;
+    }
+    input{
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    }
 }
-.leve{
-
-
+.settings button,.settings input{
+    background-color: $clor4;
+    color: white;
+    width: 80%;
+    margin: 5px;
 }
-
+#save{
+    background-color: $color2;
+}
+.triangle-up {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+  
+    padding-bottom: 6px;
+   label{
+    color: white;
+    margin-top: 19px;
+    margin-right: -11px;
+   } 
+  
+}
+ #Hard{
+    border-bottom: 40px solid $color2;
+   }
+   #medium{
+    border-bottom: 40px solid $color1;
+   }
+   #easy{
+    border-bottom: 40px solid $color3;
+   }

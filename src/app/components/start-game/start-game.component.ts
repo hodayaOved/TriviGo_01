@@ -38,6 +38,7 @@ export class StartGameComponent implements OnInit {
   IdSetting: number = 0
   subscription: Subscription | undefined;
   // t: boolean = false
+  imgAnswer:string[]=["../../../assets/1.png","../../../assets/2.png","../../../assets/3.png","../../../assets/4.png"]
   constructor(private router: Router, public serAnswer: AnsersService, private GameSettingsService: GameSettingsService, private ro: ActivatedRoute, private serQuestion: QuestionServiceService) { }
 
 
