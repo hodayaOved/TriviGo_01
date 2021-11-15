@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +23,9 @@ import { OuestionComponent } from './components/ouestion/ouestion.component';
 import { OuestionListComponent } from './components/ouestion-list/ouestion-list.component';
 import { AddQuestionComponent } from './components/add-question/add-question.component';
 import { ChooseQuestionComponent } from './components/choose-question/choose-question.component';
+import { GameResultsComponent } from './components/game-results/game-results.component';
+import { WinerComponent } from './components/winer/winer.component';
+import { ChatOnlinComponent } from './chat-onlin/chat-onlin.component';
 
 
 @NgModule({
@@ -45,6 +48,9 @@ import { ChooseQuestionComponent } from './components/choose-question/choose-que
     AddQuestionComponent,
     ChooseQuestionComponent,
     QuizNameDialogComponent,
+    GameResultsComponent,
+    WinerComponent,
+    ChatOnlinComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,7 @@ import { ChooseQuestionComponent } from './components/choose-question/choose-que
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

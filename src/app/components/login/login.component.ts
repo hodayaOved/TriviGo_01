@@ -29,16 +29,18 @@ export class LoginComponent implements OnInit {
   flagelogup: boolean = false
   flagelogin: boolean = true
   flageforgetPasword: boolean = false
-
+  url: string = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Cirrocumulus_to_Altocumulus.JPG/1024px-Cirrocumulus_to_Altocumulus.JPG";//של התמונה
+  img: any;//של התמונה
+  notgoodimg: boolean = false;//האם המסמך הוא תמונה
   constructor(public router: Router, public ser: PlayerService, private connectService: ConnectService) {
     this.myform = new FormGroup(
       {
         "name": new FormControl(null, Validators.required),
         "famelyName": new FormControl(null, Validators.required),
-        "Pas1": new FormControl(null),
+        "Pas1": new FormControl("null",Validators.min(10)),
         "Pas2": new FormControl(null),
         "email": new FormControl(null, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")),
-        "phone": new FormControl(null),
+        "phone": new FormControl(null,Validators.min(8)),
         "checbox": new FormControl(null, Validators.requiredTrue)
       }
     );
@@ -69,7 +71,9 @@ export class LoginComponent implements OnInit {
       this.myform.controls.famelyName.value,
       this.myform.controls.email.value,
       this.myform.controls.Pas1.value,
-      this.myform.controls.phone.value, 0
+      this.myform.controls.phone.value,0, 
+      this.url
+
     )
     console.log(this.addplayer)
     // this.myform.controls.phone1.value, 0)
@@ -114,7 +118,26 @@ export class LoginComponent implements OnInit {
     // document.getElementById("login").style.borderBottom="2px solid #858586"
   }
 
+  onSelectFile(event: any) {
+setTimeout(function(){ console.log(event.target.files[0]) }, 2000);
+    this.img = event.target.files;
+    
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+        if (this.img.indexOf(".JPG") == -1 && this.img.indexOf(".jpg") == -1 && this.img.indexOf(".png") == -1 && this.img.indexOf(".PNG") == -1)
+          this.notgoodimg = true;
+        else
+         this.addplayer.profile= this.url;
+      }
+    }
 
+    
+console.log(event.target.files[0])
+    console.log(this.url)
+  }
 
 
 

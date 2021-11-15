@@ -1,0 +1,59 @@
+<div id="live-chat">
+
+  <header class="clearfix">
+
+    <a href="#" class="chat-close">x</a>
+
+    <h4> צאט לשחקנים הרשומים למשחק</h4>
+
+    <span class="chat-message-counter">3</span>
+
+  </header>
+
+  <div class="chat" >
+
+    <div class="chat-history">
+      
+      <div *ngFor="let x of chat "  class="chat-message clearfix">
+        <!-- <img [ngStyle]="{'float':x.Question[0].name=='הודיה'? 'right':'left' }"  [src]="x.Question[1].time " width="32" height="32" ><br><br> -->
+
+        <img  src="http://lorempixum.com/32/32/people" alt="" >
+
+        <div class="chat-message-content clearfix">
+
+          <span [ngStyle]="{'text-align':x.Question[0].name=='הודיה'? 'right':'left' }">{{x.Question[1].time |json}}</span>
+
+          <h5 [ngStyle]="{'text-align':x.Question[0].name=='הודיה'? 'right':'left' }">{{x.Question[0].name |json}}</h5>
+
+          <p [ngStyle]="{'text-align':x.Question[0].name=='הודיה'? 'right':'left' }">{{x.Question[2].masseg |json}}</p>
+ <hr>
+        </div> <!-- end chat-message-content -->
+
+      </div> <!-- end chat-message -->
+
+     
+
+     
+
+    
+
+      
+
+    </div> <!-- end chat-history -->
+
+
+    <form action="#" method="post">
+
+      <fieldset>
+
+        <input #mas type="text" placeholder="Type your message…" autofocus>
+        <input (click)="send(mas.value)" value="שלח" type="button">
+        
+
+      </fieldset>
+
+    </form>
+
+  </div> <!-- end chat -->
+
+</div> <!-- end live-chat -->

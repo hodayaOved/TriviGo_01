@@ -2,17 +2,21 @@
   background: #E8E7E7
   ;
   width: 15%;
-  height: 100%;
+  height:-webkit-fill-available;
   display: inline-block;
   
   
+}
+#myprofil{
+height: 70px;
+width: 70px;
 }
 .Login-rghit{
   background: #F99D28;
   display: inline-block;
   
   width: 28%;
-  height: 100%;
+  height: -webkit-fill-available;
 }
 .Login-center{
   background-image: url("../../../assets/תמונה 2.jpg ")
@@ -25,7 +29,7 @@
   display: inline-block;
   
   width:55%;
-  height: 100%;
+  height: -webkit-fill-available;
 }
 .Login-rghit h1 ,h3{
   color: white;
@@ -121,12 +125,12 @@ h2 {
 /* TABS */
 
 h2.inactive {
-  color: #cccccc;
+  // color: #cccccc;
 }
 
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #858586;
+.flagTrue {
+  color:  #0d0d0d;
+  border-bottom:  solid #858586;
 }
 
 
@@ -159,7 +163,7 @@ input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
   background-color: #39ace7;
 }
 
-input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+input[type=button]:active, input[type=file]:active, input[type=submit]:active, input[type=reset]:active  {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
@@ -167,7 +171,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=password ], input[type=email], input[type=text] {
+input[type=password ], input[type=file], input[type=email], input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -188,13 +192,14 @@ input[type=password ], input[type=email], input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus ,input[type=file]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
 input[type=text]:placeholder {
   color: #cccccc;
+
 }
 
 

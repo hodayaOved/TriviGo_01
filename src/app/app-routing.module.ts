@@ -13,6 +13,9 @@ import { NewGameComponent } from './components/new-game/new-game.component';
 import { ChooseQuestionComponent } from './components/choose-question/choose-question.component';
 import { AddQuestionComponent } from './components/add-question/add-question.component';
 import { OuestionListComponent } from './components/ouestion-list/ouestion-list.component';
+import { GameResultsComponent } from './components/game-results/game-results.component';
+import { WinerComponent } from './components/winer/winer.component';
+import { ChatOnlinComponent } from './chat-onlin/chat-onlin.component';
 
 const routes: Routes = [ 
   {path: 'PlayerConnect',component: PlayerConnectComponent},
@@ -24,6 +27,9 @@ const routes: Routes = [
   {path: 'openGame',component:OpenGameComponent},
   {path: 'SystemComment',component:SystemCommentsComponent},
   {path: 'home',component: HomeComponent},
+  {path: 'GameResults/:id/:category',component: GameResultsComponent},
+  { path: 'winer', component: WinerComponent },
+  { path: 'chat', component: ChatOnlinComponent },
   
   { path: 'newGame', component: NewGameComponent },
   { path: 'choose-Question', component: ChooseQuestionComponent },

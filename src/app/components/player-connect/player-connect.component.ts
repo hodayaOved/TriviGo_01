@@ -9,7 +9,7 @@ import { player } from 'src/model/player';
 import { Quiz } from 'src/model/Quiz';
 import { SystemComments } from 'src/model/SystemComments';
 import { SystemCommentsService } from '../../services/system-comments.service';
-
+// import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-player-connect',
   templateUrl: './player-connect.component.html',
@@ -18,9 +18,10 @@ import { SystemCommentsService } from '../../services/system-comments.service';
 export class PlayerConnectComponent implements OnInit {
   AllSystemComments: SystemComments[] = []
   FlagePoint: boolean = false
-  flageGamesHistory: boolean = false
+  flageGamesHistory: boolean = true
   FlageSystemComments: boolean = false;
   FlagePrivetDitels: boolean = false
+  flagelogout: boolean = false
   flagsystem_coment = false
   player: player = new player(0, "", "", "", "", "", 0, "");
   GameSettings: GameSetting[] | undefined
@@ -33,10 +34,9 @@ export class PlayerConnectComponent implements OnInit {
     this.player = s;
   }
   startGame(x: number) {
-    this.GameSettingsService.GetGameById(x).subscribe(s => {
-      console.log(s)
-      this.router.navigate(['StartGame', s.quizId]);
-    })
+
+    this.router.navigate(['StartGame', x]);
+
 
 
 
@@ -56,6 +56,7 @@ export class PlayerConnectComponent implements OnInit {
     this.FlagePoint = true;
     this.FlagePrivetDitels = false;
     this.FlageSystemComments = false;
+    this.flageGamesHistory=false
   }
 
   GamesHistory() {
@@ -64,12 +65,10 @@ export class PlayerConnectComponent implements OnInit {
     this.FlagePrivetDitels = false;
     this.FlageSystemComments = false;
     if (this.player?.id != null) {
-      this.GameSettingsService.GetGameByIdManager(this.player?.id ? this.player?.id : 0).subscribe(s => {
-       this.GameSettings = s
-        this.GameSettings.forEach(element => {
-          this.QuizServic.GetQuizById(element.quizId).subscribe(s => { console.log(s), this.Quizs?.push(s) })
 
-        });
+      this.QuizServic.GetAllQuizbyPlayer(this.player?.id ? this.player?.id : 0).subscribe(s => {
+        this.Quizs = s
+       
       })
 
     }
@@ -98,9 +97,19 @@ export class PlayerConnectComponent implements OnInit {
 
 
   //התנתקות שחקן ממערכת
-  LogOut() {
-    localStorage.removeItem('player');
-    this.router.navigate(['home']);
+  flageLogOut() {
+    this.flagelogout = true
+    // localStorage.removeItem('player');
+    // this.router.navigate(['home']);
+  }
+  LogOut(num:number) {
+    
+    if (num==1) {
+      localStorage.removeItem('player');
+      this.router.navigate(['home']);
+    }
+    this.flagelogout = false
+
   }
 
   add_system_coment() {

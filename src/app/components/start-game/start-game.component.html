@@ -1,5 +1,8 @@
 
 <div class="game">
+  
+
+
     <h1>{{CountQuestion-q.length+1}}/{{CountQuestion+1}}</h1>
     <h3 id="TIMER">{{Time}}</h3>
     <div>
@@ -8,7 +11,7 @@
             <div id="{{ 'object' + i }}"  >
                <img  src={{imgAnswer[i]}}>
            
-            <h2> {{x.anser}}</h2>
+            <h2 (click)="IsTrueAnswer(i)"> {{x.anser}}</h2>
          </div>
     </div>
 

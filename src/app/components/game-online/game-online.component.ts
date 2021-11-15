@@ -24,6 +24,7 @@ export class GameOnlineComponent implements OnInit {
           { 3: 'שרה נתניהו' }
 
         ],
+      "answer": 1
     },
     {
       "Question":
@@ -34,6 +35,7 @@ export class GameOnlineComponent implements OnInit {
           { 3: "אמריקה", },
 
         ],
+      "answer": 1
     },
     {
       "Question":
@@ -44,6 +46,7 @@ export class GameOnlineComponent implements OnInit {
           { 3: "1", },
 
         ],
+      "answer": 1
     }
   ]
   constructor(private router: Router, private serviceGameOnline: GameOnlineService) {
@@ -53,6 +56,7 @@ export class GameOnlineComponent implements OnInit {
   FlageSignUpGameOnline = true;
   flageStart: boolean = false;
   FlagExmpleGame: boolean = false;
+  flagAnswer: boolean = false
   x = 0;
   interval: any;
   Time: number = 0;
@@ -102,18 +106,46 @@ export class GameOnlineComponent implements OnInit {
   addGame() {
     this.serviceGameOnline.FlagStartGameOnline == true
     this.flageStart = true;
-    
+
 
   }
 
   next() {
-    if( this.x<2)
-    this.x = this.x + 1;
-  }
+    for (let index = 0; index < this.array.length; index++) {
+      var falseanswer = document.getElementById("answer_" + (index + 1));
+      falseanswer?.setAttribute("style", " background-color: #eee0");
 
+    }
+    if (this.x < 2)
+      this.x = this.x + 1;
+    this.flagAnswer = false
+  }
+  TryAgain(){
+    for (let index = 0; index < this.array.length; index++) {
+      var falseanswer = document.getElementById("answer_" + (index + 1));
+      falseanswer?.setAttribute("style", " background-color: #eee0");
+
+    }
+    this.flagAnswer = false 
+  }
+  IsAnswerTrue(numAnswer: number) {
+    if (this.flagAnswer == false) {
+       this.flagAnswer = true;
+      if (this.array[this.x].answer != numAnswer) {
+        var falseanswer = document.getElementById("answer_" + numAnswer);
+        falseanswer?.setAttribute("style", " background-color: red");
+      }
+     else{
+        var trueanswer = document.getElementById("answer_" + this.array[this.x].answer);
+      trueanswer?.setAttribute("style", " background-color: blue");
+
+     }
+     
+    }
+  }
   before() {
-    if(this.x!=0)
-    this.x = this.x - 1;
+    if (this.x != 0)
+      this.x = this.x - 1;
   }
 
   SignUpGameOnline() {

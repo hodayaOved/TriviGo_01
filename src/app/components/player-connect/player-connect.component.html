@@ -7,13 +7,20 @@
   </label>
   <label class="label_sidenav" tabindex="1" id="SystemComments" (click)="SystemComments()">פניות למערכת
   </label>
-  <label class="label_sidenav" tabindex="1" (click)="LogOut()"><i class="fa fa-sign-out" style="font-size:24px"></i>התנתקות
+  <label class="label_sidenav" tabindex="1" (click)="flageLogOut()"><i class="fa fa-sign-out" style="font-size:24px"></i>התנתקות
   </label>
+  <div *ngIf="flagelogout==true" class="logout">
+  <h3  >אתה בטוח שברצונך להתנתק?</h3>
+  
+  <input (click)="LogOut(2)" id="yes" type="radio"  >כן
+  <input (click)="LogOut(1)" id="no"  type="radio" >לא
+</div>
 </div>
 
 <div class="Player-conect-left">
   <div  class="PrivetDitels" *ngIf="FlagePrivetDitels==true">
     <h1>פרטים</h1>
+    <img  height="200" [src]="player.profile"/>
     <label>שם</label>
     <input name="name" type="text" [(ngModel)]="player.name">
     <label>משפחה</label>
@@ -27,7 +34,7 @@
 
 
   <div class="point" *ngIf="FlagePoint==true">
-    <img src="../../../assets/תמונה 2.jpg">
+    <img [src]="player.profile">
     <h3>{{player.name}}</h3>
     <h1>
       צברת עד כה
@@ -40,18 +47,21 @@
 
   <table *ngIf="flageGamesHistory==true">
     <thead>
-      <th>שם משחק</th>
-      <th>קוד כניסה למשחק</th>
-      <th>תאריך שימוש אחרון</th>
-      <th></th>
+      <th id="th_1">שם משחק</th>
+      <th  id="th_2">קוד כניסה למשחק</th>
+      <th  id="th_3">תאריך שימוש אחרון</th>
+      <th  id="th_4"></th>
 
     </thead>
     <tbody>
-      <tr *ngFor="let x of GameSettings let i=index">
-        <td>{{x}}</td>
+      <tr *ngFor="let x of Quizs let i=index">
+        <td>{{x.name}}</td>
         <td>{{x.id}}</td>
-        <td>{{x}} </td>
-        <td><input type="button" value="כניסה למשחק" (click)="startGame(x.id)"> </td>
+        <td>{{x.expirationDate|date}} </td>
+        <td>
+          <input id="startGame" type="button" value="התחל משחק" (click)="startGame(x.id)"> /
+          <input id="gameSating" type="button" value="הגדרות משחק" (click)="startGame(x.id)">
+         </td>
 
       </tr>
     </tbody>
@@ -63,9 +73,9 @@
 <div *ngIf="FlageSystemComments==true">
   <table>
     <thead>
-      <th>הערה</th>
-      <th>סטטוס פניה</th>
-      <th>תאריך</th>
+      <th  id="th_1">הערה</th>
+      <th  id="th_2">סטטוס פניה</th>
+      <th  id="th_3">תאריך</th>
     </thead>
     <tbody>
       <tr *ngFor="let x of AllSystemComments">

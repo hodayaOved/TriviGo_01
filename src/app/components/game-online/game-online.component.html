@@ -5,14 +5,16 @@
         <div class="exmple-game">
             <label>{{x+1}}/{{array.length}}</label>
             <h1>{{((array[x].Question[0])[0])}}</h1>
-            <h3>1. {{array[x].Question[1][1]}}</h3>
-            <h3>2. {{array[x].Question[2][2]}}</h3>
-            <h3>3. {{array[x].Question[3][3]}}</h3>
+            <h3 id="answer_1" (click)="IsAnswerTrue(1)">1. {{array[x].Question[1][1]}}</h3>
+            <h3  id="answer_2"(click)="IsAnswerTrue(2)">2. {{array[x].Question[2][2]}}</h3>
+            <h3 id="answer_3"(click)="IsAnswerTrue(3)">3. {{array[x].Question[3][3]}}</h3>
             <br>
             <button style="background-color: #128089;" [ngClass]="{'my_class': x == array.length-1}" id="next"
                 (click)="next()">הבא</button>
             <button style="background-color: #F8D02D;" [ngClass]="{'my_class': x === 0}"
                 (click)="before()">הקודם</button>
+                <button style="background-color: #F99D28;" 
+                (click)="TryAgain()">נסה שוב</button>
         </div>
     </div>
     <div class="Online-raghit">
@@ -35,3 +37,5 @@
         <br>
     </div>
 </div>
+
+<app-chat-onlin></app-chat-onlin>

@@ -23,11 +23,13 @@ export class QuizService {
   AddQuiz(quizName:string):Observable<Quiz>{
     return this.http.post<Quiz>(url+"AddQuiz",quizName);
   }
-  ChangeLastUseDete(q:Quiz):Observable<Quiz>{
-    return this.http.put<Quiz>(url+"ChangeLastUseDete/",q)
+  ChangeLastUseDete(q:number):Observable<Quiz>{
+    return this.http.put<Quiz>(url+"ChangeLastUseDete"+q,0)
   }
   ChangeQuizName(q:Quiz,name:string):Observable<Quiz>{
     return this.http.put<Quiz>(url+"ChangeQuizName/"+name,q)
   }
-  
+  GetAllQuizbyPlayer(IdPlayer:number):Observable<Quiz[]>{
+    return this.http.get<Quiz[]>(url+"GetAllQuizbyPlayer/"+IdPlayer)
+  }
 }

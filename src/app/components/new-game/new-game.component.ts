@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameSetting } from 'src/model/GameSetting';
 
 @Component({
   selector: 'app-new-game',
@@ -10,11 +11,13 @@ export class NewGameComponent implements OnInit {
   caterories: boolean = false;
   enyCategory: boolean = false;
   cuterorieschoosd: number[] = [];
+  gamesetting: GameSetting = new GameSetting(0, 0, 0, 0, false, false)
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     debugger
   }
+
 
   chooseQuestion() {
     this.caterories = false;
@@ -27,6 +30,20 @@ export class NewGameComponent implements OnInit {
       this.enyCategory = false;
       this.caterories = false;
       this.cuterorieschoosd = arr;
+    }
+  }
+
+  questionTime() {
+    this.gamesetting.questionTime = 0;
+
+  }
+  whatSee(see: number) {
+    if (see == 1) {
+      this.gamesetting.visionPercentage = true;
+    }
+    else{
+      this.gamesetting.visionPlayer = true;
+
     }
   }
 

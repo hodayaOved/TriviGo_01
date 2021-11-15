@@ -1,3 +1,8 @@
+$color1:#157780;
+$color2:#F99D28;
+$color3:#F8D02D;
+$color4:#858586;
+$color5:#E8E7E7;
 body {
   font-family: "Lato", sans-serif;
 }
@@ -14,7 +19,13 @@ body {
   display: inline-block;
   
 }
+input#no {
+  margin-left: 19px;
+}
 
+.logout{
+  text-align: center;
+}
 /* Style the sidenav links and the dropdown button */
 .sidenav label {
  
@@ -71,17 +82,30 @@ table {
   margin-top: 10%;
   
 }
+#gameSating{background:$color2;}
+  #startGame{background-color: $color3;}
 table,th,td   {
-  border-bottom: 1px solid rgba(145, 140, 140, 0.384);
+  background-color: rgba(136, 136, 136, 0.185);
+  border: 1px solid rgb(255, 255, 255);  
   border-collapse: collapse;
   text-align: center;
+  #th_1{
+    background-color: $color1;
+  }
+  #th_2{
+    background-color: $color2;
+  }#th_3{
+    background-color: $color3;
+  }
+ 
 }
-table input
-{
-  background: #f8d12f;
-  color: white;
-  border: none;
-}
+// table input
+// {color: white;
+//   border: none;
+//   #gameSating{background:$color2;}
+//   #startGame{background-color: $color1;}
+  
+// }
 th, td {
   padding: 15px;
 }
@@ -184,7 +208,11 @@ th, td {
   background-color: orange;
   border: none;color: white;
   
+  
 }
+
+  
+
 .PrivetDitels h1{
   margin-right: -10%;
     margin-left: -11%;
@@ -227,4 +255,11 @@ label.label_sidenav:focus{
     border-radius: 50%;
     color: #fff;
     margin-left: 42%;
+}
+img{
+  height: 20%;
+  width: 7%;
+  border-radius: 50%;
+  border-bottom: rosybrown;
+
 }

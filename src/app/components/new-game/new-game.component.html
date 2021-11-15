@@ -1,5 +1,5 @@
 <div class="new-game-right">
-   
+
 </div>
 <div class="new-game-center">
     <div class="new-game-center-2">
@@ -7,9 +7,10 @@
             <h4>שם המשחק</h4>
             <input type="text" #GameName value="משחק 1" />
         </div>
-        <h4>זמן לכל שאלה</h4>
-        <input type="number" #TimeGame value="0" />
-        <button>מעבר ע"י לחיצה</button>
+        <h4 >זמן לכל שאלה</h4>
+        
+        <input type="number" #TimeGame value="30" [(ngModel)]="gamesetting.questionTime" min="30"/>
+        <button (click)="questionTime()">מעבר ע"י לחיצה</button>
         <h4>בחירת שאלות</h4>
         <button (click)="chooseQuestion() "> בנית שאלון אישי</button>
         <button (click)="caterories=false">בחירה רנדומלית</button>
@@ -23,8 +24,8 @@
         <button>לפי רמה</button>
         <button>אחיד</button>
         <h4>אחרי כל שאלה יראו:</h4>
-        <button>אחוז העונים כל תשובה</button>
-        <button>שלושת השחקנים שענו ראשונים</button>
+        <button (click)="whatSee(1)" >אחוז העונים כל תשובה</button>
+        <button (click)="whatSee(2)">שלושת השחקנים שענו ראשונים</button>
         <h4> הכנסת שחקנים</h4>
         <button>שחקנים בודדים</button>
         <button>לפי קבוצות</button>

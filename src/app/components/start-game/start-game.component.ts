@@ -9,7 +9,9 @@ import { GameSettingsService } from 'src/app/services/game-settings.service';
 
 import { Ansers } from 'src/model/Ansers';
 import { GameSetting } from 'src/model/GameSetting';
+import { PlayerSAnswerToQuestion } from 'src/model/PlayerSAnswerToQuestion';
 import { Question } from 'src/model/Question';
+import { PlayersForGroupsService } from 'TriviGo/git/src/app/services/players-for-groups.service';
 //import { Question } from 'src/model/Question';
 import { AnsersService } from '../../services/ansers.service';
 import { QuestionServiceService } from '../../services/question-service.service';
@@ -24,6 +26,7 @@ import { QuizService } from '../../services/quiz.service';
 
 
 export class StartGameComponent implements OnInit {
+  PlayerSAnswer:PlayerSAnswerToQuestion | undefined
   gs: GameSetting | undefined
   QuizId: number = 0;
   // qu: Question = new Question(0, "", 0, "", 0, 0, 0, 0);
@@ -38,34 +41,25 @@ export class StartGameComponent implements OnInit {
   IdSetting: number = 0
   subscription: Subscription | undefined;
   // t: boolean = false
-  imgAnswer:string[]=["../../../assets/1.png","../../../assets/2.png","../../../assets/3.png","../../../assets/4.png"]
-  constructor(private router: Router, public serAnswer: AnsersService, private GameSettingsService: GameSettingsService, private ro: ActivatedRoute, private serQuestion: QuestionServiceService) { }
+  imgAnswer: string[] = ["../../../assets/1.png", "../../../assets/2.png", "../../../assets/3.png", "../../../assets/4.png"]
+  constructor(private QuizServic: QuizService, private router: Router, public serAnswer: AnsersService, private GameSettingsService: GameSettingsService, private ro: ActivatedRoute, private serQuestion: QuestionServiceService) { }
 
 
   ngOnInit(): void {
     this.sub = this.ro.params.subscribe(p => { this.IdSetting = p['id'] })
+    alert(this.IdSetting)
+
     this.startGame()
   }
+  updateDate() {
+    debugger
+    this.QuizServic.ChangeLastUseDete(this.IdSetting).subscribe
+      (y => alert("yes"))
+  }
   startGame() {
-    if (this.IdSetting != 0)//משחק מוכן
-    {
-      this.serQuestion.GetQuestionsByQuiz(this.IdSetting).subscribe
-        (y => {
-          this.q = y, console.log(y),
-            this.AddQuestion(),
-            this.CountQuestion = this.q.length;
-        })
-    }
-    else//משחק אונליין
-    {
-      this.serQuestion.GetQuestionsMixOnline().subscribe(y => { this.q = y, this.AddQuestion(), this.CountQuestion = this.q.length; })
-      this.TimeConst = 25;
-      this.Time = this.TimeConst;
-      const source = interval(1000);
-      this.subscription = source.subscribe(val => { this.Time--, this.timers() });
-    }
 
     debugger
+
     this.GameSettingsService.TimeIsNotNull(this.IdSetting).subscribe(
       s => {
         alert(s)
@@ -87,13 +81,33 @@ export class StartGameComponent implements OnInit {
       }
 
     )
+    if (this.IdSetting != 0)//משחק מוכן
+    {
+      this.serQuestion.GetQuestionsByGame(this.IdSetting).subscribe
+        (y => {
+          this.q = y, console.log(y),
+            this.AddQuestion(),
+            this.CountQuestion = this.q.length;
+        })
+    }
+    else//משחק אונליין
+    {
+      this.serQuestion.GetQuestionsMixOnline().subscribe(y => { this.q = y, this.AddQuestion(), this.CountQuestion = this.q.length; })
+      this.TimeConst = 25;
+      this.Time = this.TimeConst;
+      const source = interval(1000);
+      this.subscription = source.subscribe(val => { this.Time--, this.timers() });
+    }
+
   }
 
   AddQuestion() {
-
-    if (this.q.length != null) {
+    if (this.q.length != 0) {
       this.q1 = this.q?.pop();
       this.serAnswer.GetAnsersByQuestion(this.q1.id).subscribe(s => { this.arrAnswer = s, console.log(this.arrAnswer) });
+   
+    }else{
+     this.router.navigate(['winer']);
     }
     if (this.q == null) {
       this.ngOnDestroy()
@@ -101,7 +115,6 @@ export class StartGameComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // this.subscription?.unsubscribe();
   }
 
   timers() {
@@ -111,5 +124,7 @@ export class StartGameComponent implements OnInit {
     }
   }
 
-  
+  IsTrueAnswer(numAnswer: number) {
+    // let PlayerSAnswer:PlayerSAnswerToQuestion =new PlayerSAnswerToQuestion(1,this.IdSetting,localStorage.getItem("player")?.normalize, this.q1.id,this.arrAnswer[numAnswer],Date.now)
+  }
 }

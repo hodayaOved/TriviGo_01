@@ -40,5 +40,7 @@ export class QuestionServiceService {
   UpdateQuestion(q:Question):Observable<Question>{
     return this.http.put<Question>(url+" UpdateQuestion",q)
   }
-  
+  GetQuestionsByGame(idGame:number):Observable<Question[]>{
+    return this.http.get<Question[]>(url+"GetQuestionsByGame/"+idGame)
+  }
 }
